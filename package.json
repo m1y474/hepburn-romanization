@@ -1,0 +1,43 @@
+{
+  "name": "hepburn-romanization",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "GENERATE_SOURCEMAP=false webpack --mode=production",
+    "start": "webpack-cli serve --mode development",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "init": "npm i && git config core.hooksPath bin/git && chmod a+x bin/git/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m1y474/hepburn-romanization.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/m1y474/hepburn-romanization/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.25",
+    "@types/react": "^18.0.6",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "prettier": "^2.7.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.2.8",
+    "typescript": "^4.6.3",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
+  },
+  "dependencies": {
+    "@types/react-dom": "^18.0.2",
+    "@types/react-router-dom": "^5.3.3",
+    "axios": "^0.27.2",
+    "react-router-dom": "^6.3.0",
+    "url-loader": "^4.1.1"
+  }
+}

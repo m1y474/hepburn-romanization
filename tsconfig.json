@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "lib": ["es2017", "DOM"],
+    "moduleResolution": "node",
+    "strict": true,
+    "outDir": "public/dist",
+    "target": "ES6",
+    "module": "ES2015",
+    "sourceMap": true,
+    "baseUrl": ".",
+    "typeRoots": ["src/types"],
+    "paths": {
+      "*": ["src/*"],
+      "tests": ["tests/*"],
+      "@components/*": ["src/components/*"],
+      "@views/*": ["src/views/*"],
+      "@assets/*": ["src/assets/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "babel.config.js", "jest.config.js"]
+}
