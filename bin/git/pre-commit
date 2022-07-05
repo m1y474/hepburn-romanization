@@ -1,0 +1,10 @@
+#!/bin/bash
+DIFF_LIST=$(git diff --cached --name-only --diff-filter=AM src/*)
+if [ -n "${DIFF_LIST}" ]; then
+    LINT=$(node ./node_modules/.bin/prettier ${DIFF_LIST} --write)
+
+    git add ${DIFF_LIST}
+
+    COLOR='\033[32m%s\033[m\n'
+    printf ${COLOR} 'formatting staged files and committed.'
+fi
