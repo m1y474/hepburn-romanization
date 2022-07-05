@@ -1,3 +1,4 @@
+
 export type AppState = {
     value: string;
     spells: { [key: string]: string[] };
