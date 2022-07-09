@@ -37,18 +37,7 @@ const src = {
     ["ぴゃ", "PYA", "", "", "ぴゅ", "PYU", "", "", "ぴょ", "PYO"],
   ],
   other: [
-    [
-      "しぇ",
-      "SHIE",
-      "ちぇ",
-      "CHIE",
-      "てぃ",
-      "TEI",
-      "にぃ",
-      "NII",
-      "にぇ",
-      "NIE",
-    ],
+    ["しぇ", "SHIE", "ちぇ", "CHIE", "てぃ", "TEI", "にぃ", "NII", "にぇ", "NIE"],
     ["ふぁ", "FUA", "ふぃ", "FUI", "ふぇ", "FUE", "ふぉ", "FUO", "じぇ", "JIE"],
     ["でぃ", "DEI", "でゅ", "DEYU", "うぃ", "UI", "うぇ", "UE", "うぉ", "UO"],
     ["ゔぁ", "BA", "ゔぁ", "BI", "ゔ", "BU", "ゔぇ", "BE", "ゔぇ", "BO"],
@@ -59,17 +48,17 @@ const src = {
 export default class SpellingTable extends React.Component {
   render(): React.ReactNode {
     return (
-      <>
-        <table className={styles.table}>
+      <table className={styles.table}>
+        <tbody>
           <tr>
             <td className={styles.tableHeader} colSpan={10}>
               50音順
             </td>
           </tr>
-          {src.normal.map((strGroup) => (
-            <tr>
-              {strGroup.map((str) => (
-                <td>{str}</td>
+          {src.normal.map((strGroup, groupIndex) => (
+            <tr key={groupIndex}>
+              {strGroup.map((str, index) => (
+                <td key={index}>{str}</td>
               ))}
             </tr>
           ))}
@@ -78,10 +67,10 @@ export default class SpellingTable extends React.Component {
               濁音・半濁音
             </td>
           </tr>
-          {src.dakuonAndHandakuon.map((strGroup) => (
-            <tr>
-              {strGroup.map((str) => (
-                <td>{str}</td>
+          {src.dakuonAndHandakuon.map((strGroup, groupIndex) => (
+            <tr key={groupIndex}>
+              {strGroup.map((str, index) => (
+                <td key={index}>{str}</td>
               ))}
             </tr>
           ))}
@@ -90,10 +79,10 @@ export default class SpellingTable extends React.Component {
               拗音
             </td>
           </tr>
-          {src.yon.map((strGroup) => (
-            <tr>
-              {strGroup.map((str) => (
-                <td>{str}</td>
+          {src.yon.map((strGroup, groupIndex) => (
+            <tr key={groupIndex}>
+              {strGroup.map((str, index) => (
+                <td key={index}>{str}</td>
               ))}
             </tr>
           ))}
@@ -102,15 +91,15 @@ export default class SpellingTable extends React.Component {
               その他
             </td>
           </tr>
-          {src.other.map((strGroup) => (
-            <tr>
-              {strGroup.map((str) => (
-                <td>{str}</td>
+          {src.other.map((strGroup, groupIndex) => (
+            <tr key={groupIndex}>
+              {strGroup.map((str, index) => (
+                <td key={index}>{str}</td>
               ))}
             </tr>
           ))}
-        </table>
-      </>
+        </tbody>
+      </table>
     );
   }
 }
