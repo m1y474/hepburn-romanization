@@ -1,0 +1,16 @@
+.message {
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  color: #fff;
+  font-size: 14px;
+  width: 500px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 1;
+  border-radius: 10px;
+  justify-content: space-around;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

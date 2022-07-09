@@ -1,0 +1,11 @@
+@import "./vars";
+.list {
+  padding-left: 1rem;
+  font-size: 14px;
+  color: $greyColor;
+  p {
+    font-size: 12px;
+    margin: 0;
+    color: $lightGreyColor;
+  }
+}
