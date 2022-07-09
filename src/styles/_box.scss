@@ -1,0 +1,29 @@
+@import "./vars";
+@mixin box {
+  width: 540px;
+  height: 330px;
+  padding: 10px;
+  border: 1px solid $greyColor;
+  border-radius: 10px;
+  font-size: 16px;
+}
+.boxWrapper {
+  display: flex;
+  align-items: center;
+  .left {
+    @include box();
+    margin-right: 20px;
+    resize: none;
+    &::placeholder {
+      color: #bcbcbc;
+    }
+  }
+  .right {
+    @include box();
+    margin-left: 20px;
+    .empty {
+      color: #bcbcbc;
+      margin: 0;
+    }
+  }
+}

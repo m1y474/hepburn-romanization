@@ -1,7 +1,9 @@
 import axios from "axios";
+import Arrow from "./Icons";
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AppState } from "types";
+import styles from "./styles/app.scss";
 
 export default class App extends React.Component<React.FC, AppState> {
   constructor(props: React.FC) {
@@ -81,30 +83,38 @@ export default class App extends React.Component<React.FC, AppState> {
 
   render() {
     return (
-      <>
-        <label>
+      <div className={styles.container}>
+        <h1 className={styles.header}>ヘボン式ローマ字</h1>
+        <div className={styles.boxWrapper}>
+          <textarea
+            className={styles.left}
+            placeholder="ひらがなを入力すると右側に変換結果が表示されます。&#10;例：やまだ　たろう"
+            onChange={(event) => {
+              this.transrate(event.target.value);
+            }}
+          ></textarea>
+          <Arrow />
+          <div className={styles.right}>
+            {this.state.result ? (
+              this.state.result
+            ) : (
+              <p className={styles.empty}>
+                変換結果が表示されます。
+                <br />
+                例：YAMADA TARO
+              </p>
+            )}
+          </div>
+        </div>
+        <label className={styles.label}>
           <input
             type="checkbox"
             onChange={(event) => this.toLower(event.target.checked)}
           />
           小文字
         </label>
-        <div>
-          <input
-            type="text"
-            onChange={(event) => {
-              this.transrate(event.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <p>
-            結果:
-            <br />
-            {this.state.result}
-          </p>
-        </div>
-      </>
+        <div></div>
+      </div>
     );
   }
 }
