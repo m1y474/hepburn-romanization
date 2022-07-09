@@ -1,9 +1,10 @@
 import axios from "axios";
-import Arrow from "./Icons";
+import { Arrow } from "./components/Icons";
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AppState } from "types";
 import styles from "./styles/app.scss";
+import RoundedButton from "./components/RoundedButton";
 
 export default class App extends React.Component<React.FC, AppState> {
   constructor(props: React.FC) {
@@ -13,6 +14,7 @@ export default class App extends React.Component<React.FC, AppState> {
       spells: {},
       result: "",
       isLower: false,
+      message: "",
     };
   }
 
@@ -81,19 +83,46 @@ export default class App extends React.Component<React.FC, AppState> {
     });
   }
 
+  clear() {
+    // todo 入力値をクリア
+  }
+
+  copy() {
+    // todo 入力値をクリップボードにコピー
+    this.setState({
+        message: "変換結果をコピーしました。",
+      });
+    setTimeout(() => {
+      this.setState({
+        message: "",
+      });
+    }, 2000);
+  }
+
   render() {
     return (
       <div className={styles.container}>
-        <h1 className={styles.header}>ヘボン式ローマ字</h1>
+        <h1 className={styles.header}>ヘボン式ローマ字変換</h1>
+        {this.state.message ? (
+          <p className={styles.message}>{this.state.message}</p>
+        ) : null}
         <div className={styles.boxWrapper}>
-          <textarea
-            className={styles.left}
-            placeholder="ひらがなを入力すると右側に変換結果が表示されます。&#10;例：やまだ　たろう"
-            onChange={(event) => {
-              this.transrate(event.target.value);
-            }}
-          ></textarea>
-          <Arrow />
+          <div className={styles.left}>
+            <textarea
+              placeholder="ひらがなを入力すると右側に変換結果が表示されます。&#10;例：やまだ　たろう"
+              onChange={(event) => {
+                this.transrate(event.target.value);
+              }}
+            ></textarea>
+            <RoundedButton
+              label="Clean"
+              onClick={() => this.clear()}
+              icon="clean"
+            />
+          </div>
+          <div className={styles.arrow}>
+            <Arrow />
+          </div>
           <div className={styles.right}>
             {this.state.result ? (
               this.state.result
@@ -104,6 +133,11 @@ export default class App extends React.Component<React.FC, AppState> {
                 例：YAMADA TARO
               </p>
             )}
+            <RoundedButton
+              label="Copy"
+              onClick={() => this.copy()}
+              icon="file"
+            />
           </div>
         </div>
         <label className={styles.label}>
