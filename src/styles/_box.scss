@@ -18,6 +18,7 @@
     position: relative;
     @include box();
     textarea {
+      font-size: 16px;
       margin: 0;
       padding: 0;
       border: none;
