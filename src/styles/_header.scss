@@ -4,3 +4,12 @@
   border-bottom: 0.5px solid $greyColor;
   color: $greyColor;
 }
+.headingWrapper {
+  margin-top: 40px;
+  .heading {
+    color: $greyColor;
+    padding-left: 8px;
+    font-size: 20px;
+    border-left: 5px solid $mainColor;
+  }
+}

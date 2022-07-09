@@ -5,6 +5,8 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { AppState } from "types";
 import styles from "./styles/app.scss";
 import RoundedButton from "./components/RoundedButton";
+import Heading from "./components/Heading";
+import SpellingTable from "./components/SpellingTable";
 
 export default class App extends React.Component<React.FC, AppState> {
   constructor(props: React.FC) {
@@ -90,8 +92,8 @@ export default class App extends React.Component<React.FC, AppState> {
   copy() {
     // todo 入力値をクリップボードにコピー
     this.setState({
-        message: "変換結果をコピーしました。",
-      });
+      message: "変換結果をコピーしました。",
+    });
     setTimeout(() => {
       this.setState({
         message: "",
@@ -140,14 +142,17 @@ export default class App extends React.Component<React.FC, AppState> {
             />
           </div>
         </div>
-        <label className={styles.label}>
+        {/* <label className={styles.label}>
           <input
             type="checkbox"
             onChange={(event) => this.toLower(event.target.checked)}
           />
           小文字
-        </label>
-        <div></div>
+        </label> */}
+        <div className={styles.headingWrapper}>
+          <Heading text="ヘボン式ローマ字綴方表" />
+          <SpellingTable />
+        </div>
       </div>
     );
   }

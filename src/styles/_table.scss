@@ -1,0 +1,23 @@
+@import "./vars";
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  tr td {
+    height: 40px;
+    border: 0.5px solid $greyColor;
+    text-align: center;
+    padding: 0;
+    color: #000;
+    &:nth-last-of-type(even) {
+      color: $greyColor;
+      background-color: #efefef;
+    }
+  }
+  .tableHeader {
+    font-weight: bold;
+    background-color: $mainColor;
+    color: #fff;
+    text-align: center;
+  }
+}
