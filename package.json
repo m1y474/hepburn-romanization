@@ -38,6 +38,7 @@
     "@types/react-router-dom": "^5.3.3",
     "axios": "^0.27.2",
     "react-router-dom": "^6.3.0",
+    "sass-loader": "^13.0.2",
     "url-loader": "^4.1.1"
   }
 }
