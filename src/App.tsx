@@ -9,6 +9,8 @@ import Heading from "./components/Heading";
 import SpellingTable from "./components/SpellingTable";
 
 export default class App extends React.Component<React.FC, AppState> {
+  private input = React.createRef<HTMLInputElement>();
+
   constructor(props: React.FC) {
     super(props);
     this.state = {
@@ -85,7 +87,9 @@ export default class App extends React.Component<React.FC, AppState> {
   }
 
   copy() {
-    // todo 入力値をクリップボードにコピー
+    this.input.current?.select();
+    document.execCommand("copy");
+
     this.setState({
       message: "変換結果をコピーしました。",
     });
@@ -124,6 +128,7 @@ export default class App extends React.Component<React.FC, AppState> {
                 例：YAMADA TARO
               </p>
             )}
+            <input type="text" className={styles.none} ref={this.input} defaultValue={this.state.result} />
             <RoundedButton type="button" label="Copy" onClick={() => this.copy()} icon="file" />
           </div>
         </div>
