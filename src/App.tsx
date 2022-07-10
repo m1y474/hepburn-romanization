@@ -50,11 +50,7 @@ export default class App extends React.Component<React.FC, AppState> {
           let tmp = toDouble;
           // 2つ前が「っ」の場合
           if (args?.[index - 2] === "っ") {
-            if (toT.includes(double)) {
-              tmp = `T${toDouble}`;
-            } else {
-              tmp = `${toDouble?.charAt(0) ?? ""}${toDouble}`;
-            }
+            tmp = toT.includes(double) ? `T${toDouble}` : `${toDouble?.charAt(0) ?? ""}${toDouble}`;
           }
           result[index - 1] = tmp;
         } else if (args?.[index - 1] === "っ") {
