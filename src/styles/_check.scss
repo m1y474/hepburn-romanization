@@ -1,0 +1,23 @@
+@import "./vars";
+.check {
+  display: flex;
+  margin-top: 12px;
+  input {
+    display: none;
+    &:checked + span {
+      background-color: $mainColor;
+      color: #fff;
+    }
+  }
+  span {
+    border: 2px solid $mainColor;
+    border-radius: 10px;
+    width: 86px;
+    height: 26px;
+    color: $mainColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+}

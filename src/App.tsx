@@ -7,6 +7,7 @@ import styles from "./styles/app.scss";
 import RoundedButton from "./components/RoundedButton";
 import Heading from "./components/Heading";
 import SpellingTable from "./components/SpellingTable";
+import Check from "./components/Check";
 
 export default class App extends React.Component<React.FC, AppState> {
   private input = React.createRef<HTMLInputElement>();
@@ -106,39 +107,38 @@ export default class App extends React.Component<React.FC, AppState> {
         <h1 className={styles.header}>ヘボン式ローマ字変換</h1>
         {this.state.message ? <p className={styles.message}>{this.state.message}</p> : null}
         <div className={styles.boxWrapper}>
-          <form className={styles.left}>
-            <textarea
-              placeholder="ひらがなを入力すると右側に変換結果が表示されます。&#10;例：やまだ　たろう"
-              onChange={(event) => {
-                this.transrate(event.target.value);
-              }}
-            ></textarea>
-            <RoundedButton label="Clean" type="reset" onClick={() => this.setState({ result: "" })} icon="clean" />
-          </form>
+          <div className={styles.wrapper}>
+            <form className={styles.left}>
+              <textarea
+                placeholder="ひらがなを入力すると右側に変換結果が表示されます。&#10;例：やまだ　たろう"
+                onChange={(event) => {
+                  this.transrate(event.target.value);
+                }}
+              ></textarea>
+              <RoundedButton label="Clean" type="reset" onClick={() => this.setState({ result: "" })} icon="clean" />
+            </form>
+            <Check label="カタカナ" onChange={(checked) => console.log("todo")} />
+          </div>
           <div className={styles.arrow}>
             <Arrow />
           </div>
-          <div className={styles.right}>
-            {this.state.result ? (
-              this.state.result
-            ) : (
-              <p className={styles.empty}>
-                変換結果が表示されます。
-                <br />
-                例：YAMADA TARO
-              </p>
-            )}
-            <input type="text" className={styles.none} ref={this.input} defaultValue={this.state.result} />
-            <RoundedButton type="button" label="Copy" onClick={() => this.copy()} icon="file" />
+          <div className={styles.wrapper}>
+            <div className={styles.right}>
+              {this.state.result ? (
+                this.state.result
+              ) : (
+                <p className={styles.empty}>
+                  変換結果が表示されます。
+                  <br />
+                  例：YAMADA TARO
+                </p>
+              )}
+              <input type="text" className={styles.none} ref={this.input} defaultValue={this.state.result} />
+              <RoundedButton type="button" label="Copy" onClick={() => this.copy()} icon="file" />
+            </div>
+            <Check label="小文字" onChange={(checked) => this.toLower(checked)} />
           </div>
         </div>
-        {/* <label className={styles.label}>
-          <input
-            type="checkbox"
-            onChange={(event) => this.toLower(event.target.checked)}
-          />
-          小文字
-        </label> */}
         <div className={styles.headingWrapper}>
           <Heading text="ヘボン式ローマ字綴方表" />
           <SpellingTable />
