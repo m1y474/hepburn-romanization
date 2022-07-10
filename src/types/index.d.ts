@@ -11,3 +11,8 @@ export type ButtonProps = {
   label: string;
   onClick: () => void;
 };
+
+export type CheckProps = {
+  label: string;
+  onChange: (checked: boolean) => void;
+};
