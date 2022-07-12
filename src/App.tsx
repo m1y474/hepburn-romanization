@@ -15,12 +15,10 @@ export default class App extends React.Component<React.FC, AppState> {
   constructor(props: React.FC) {
     super(props);
     this.state = {
-      value: "",
       spells: {},
       result: "",
       isLower: false,
       message: "",
-      isKatakana: false,
     };
   }
 
@@ -31,7 +29,6 @@ export default class App extends React.Component<React.FC, AppState> {
   }
 
   transrate(args: string) {
-    this.setState({ value: args });
     const spells = this.state.spells;
     const src = args.replace(/[\u30a1-\u30f6]/g, (match) => String.fromCharCode(match.charCodeAt(0) - 0x60));
     const result: string[] = [];
