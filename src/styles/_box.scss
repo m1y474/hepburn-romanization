@@ -13,7 +13,6 @@
   border-bottom: 0.5px solid $greyColor;
   box-sizing: border-box;
   display: flex;
-  align-items: center;
   .left {
     position: relative;
     @include box();
@@ -34,7 +33,7 @@
     }
   }
   .arrow {
-    margin: 0 20px;
+    margin: 127px 20px 0;
   }
   .right {
     position: relative;

@@ -30,11 +30,12 @@ export default class App extends React.Component<React.FC, AppState> {
 
   transrate(args: string) {
     const spells = this.state.spells;
+    const src = args.replace(/[\u30a1-\u30f6]/g, (match) => String.fromCharCode(match.charCodeAt(0) - 0x60));
     const result: string[] = [];
     const toM: string = "ばびぶべぼまみむめもぱぴぷぺぽ";
     const small = "ぁぃぇぉゃゅょ";
     const toT: string[] = ["ち", "ちゃ", "ちゅ", "ちょ"];
-    const toArray = args.toUpperCase().split("");
+    const toArray = src.toUpperCase().split("");
     toArray.map((arg, index) => {
       const spell = spells?.[arg]?.[0] ?? "";
       if (!(index in result)) {
@@ -49,15 +50,11 @@ export default class App extends React.Component<React.FC, AppState> {
           const toDouble = spells?.[double]?.[0] ?? "";
           let tmp = toDouble;
           // 2つ前が「っ」の場合
-          if (args?.[index - 2] === "っ") {
-            if (toT.includes(double)) {
-              tmp = `T${toDouble}`;
-            } else {
-              tmp = `${toDouble?.charAt(0) ?? ""}${toDouble}`;
-            }
+          if (src?.[index - 2] === "っ") {
+            tmp = toT.includes(double) ? `T${toDouble}` : `${toDouble?.charAt(0) ?? ""}${toDouble}`;
           }
           result[index - 1] = tmp;
-        } else if (args?.[index - 1] === "っ") {
+        } else if (src?.[index - 1] === "っ") {
           result[index] = `${spell?.charAt(0) ?? ""}${spell}`;
         }
       }
@@ -110,14 +107,13 @@ export default class App extends React.Component<React.FC, AppState> {
           <div className={styles.wrapper}>
             <form className={styles.left}>
               <textarea
-                placeholder="ひらがなを入力すると右側に変換結果が表示されます。&#10;例：やまだ　たろう"
+                placeholder="ひらがな・カタカナを入力すると右側に変換結果が表示されます。&#10;例：やまだ　たろう"
                 onChange={(event) => {
                   this.transrate(event.target.value);
                 }}
               ></textarea>
               <RoundedButton label="Clean" type="reset" onClick={() => this.setState({ result: "" })} icon="clean" />
             </form>
-            <Check label="カタカナ" onChange={(checked) => console.log("todo")} />
           </div>
           <div className={styles.arrow}>
             <Arrow />
