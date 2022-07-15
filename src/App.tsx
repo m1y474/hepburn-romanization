@@ -23,7 +23,7 @@ export default class App extends React.Component<React.FC, AppState> {
   }
 
   componentDidMount() {
-    axios.get("/spells.json").then((res) => {
+    axios.get("./spells.json").then((res) => {
       this.setState({ spells: res.data });
     });
   }
