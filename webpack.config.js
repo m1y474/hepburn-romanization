@@ -1,9 +1,10 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  mode: "development",
+  mode: process.env.NODE_ENV ?? "development",
   entry: "./index.tsx",
   output: {
     path: `${__dirname}/dist`,
@@ -58,6 +59,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/index.html",
       filename: "index.html",
+      favicon: "./public/favicon.ico",
+    }),
+    new CopyPlugin({
+      patterns: [{ from: `${__dirname}/public/spells.json`, to: `${__dirname}/dist/spells.json` }],
     }),
   ],
   optimization: {
@@ -66,5 +71,9 @@ module.exports = {
         extractComments: false,
       }),
     ],
+  },
+  performance: {
+    maxEntrypointSize: 1000000,
+    maxAssetSize: 1000000,
   },
 };
