@@ -6,7 +6,7 @@
   "scripts": {
     "build": "GENERATE_SOURCEMAP=false webpack --mode=production",
     "start": "webpack-cli serve --mode development",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "init": "npm i && git config core.hooksPath bin/git && chmod a+x bin/git/"
   },
   "repository": {
@@ -23,6 +23,7 @@
     "@types/react": "^18.0.6",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^28.1.3",
     "prettier": "^2.7.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -34,9 +35,11 @@
     "webpack-dev-server": "^4.8.1"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.18.6",
     "@types/react-dom": "^18.0.2",
     "@types/react-router-dom": "^5.3.3",
     "axios": "^0.27.2",
+    "babel-plugin-module-resolver": "^4.1.0",
     "copy-webpack-plugin": "^11.0.0",
     "react-router-dom": "^6.3.0",
     "sass-loader": "^13.0.2",

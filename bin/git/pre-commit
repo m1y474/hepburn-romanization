@@ -1,5 +1,5 @@
 #!/bin/bash
-DIFF_LIST=$(git diff --cached --name-only --diff-filter=AM src/*)
+DIFF_LIST=$(git diff --cached --name-only --diff-filter=AM src/* tests/*)
 if [ -n "${DIFF_LIST}" ]; then
     LINT=$(node ./node_modules/.bin/prettier ${DIFF_LIST} --write)
 
