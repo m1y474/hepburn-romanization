@@ -1,10 +1,9 @@
 name: build
 
-# on:
-#   push:
-#     branches:
-#       - main
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -15,4 +14,3 @@ jobs:
         with:
           node-version: 16
       - run: ls -al && npm run && npm i && rm -rf docs/ && npm run build && mv dist docs
-      # rm -rf docs/ && npm run build && mv dist docs
