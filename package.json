@@ -3,17 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://m1y474.github.io/hepburn-romanization/",
   "scripts": {
+    "init": "npm i && git config core.hooksPath bin/git && chmod a+x bin/git/",
     "build": "GENERATE_SOURCEMAP=false webpack --mode=production",
     "start": "webpack-cli serve --mode development",
     "test": "jest",
-    "init": "npm i && git config core.hooksPath bin/git && chmod a+x bin/git/"
+    "deploy": "rm -rf docs/ && npm run build && mv dist docs"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/m1y474/hepburn-romanization.git"
   },
-  "author": "",
+  "author": "m1y474",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/m1y474/hepburn-romanization/issues"
@@ -42,6 +44,7 @@
     "babel-plugin-module-resolver": "^4.1.0",
     "copy-webpack-plugin": "^11.0.0",
     "react-router-dom": "^6.3.0",
+    "sass": "^1.53.0",
     "sass-loader": "^13.0.2",
     "url-loader": "^4.1.1"
   }
