@@ -14,5 +14,5 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: ls -al 
+      - run: ls -al && npm --version
       # rm -rf docs/ && npm run build && mv dist docs
