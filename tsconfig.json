@@ -16,7 +16,7 @@
     "typeRoots": ["src/types"],
     "paths": {
       "*": ["src/*"],
-      "tests": ["tests/*"],
+      "tests": ["__tests__/*"],
       "@components/*": ["src/components/*"],
       "@views/*": ["src/views/*"],
       "@assets/*": ["src/assets/*"]
