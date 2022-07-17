@@ -9,7 +9,7 @@
     "build": "GENERATE_SOURCEMAP=false webpack --mode=production",
     "start": "webpack-cli serve --mode development",
     "test": "jest",
-    "deploy": "rm -rf docs/ && npm run build && mv dist docs && git add . && git commit && git push origin main"
+    "deploy": "rm -rf docs/ && npm run build && mv dist docs"
   },
   "repository": {
     "type": "git",
