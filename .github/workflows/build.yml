@@ -17,6 +17,7 @@ jobs:
           node-version: 16
       - run: |
           ls -al
+          git checkout main
           npm i
           rm -rf docs/
           npm run build
@@ -24,3 +25,4 @@ jobs:
           ls -al
           cd docs
           ls -a
+          git status
