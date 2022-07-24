@@ -21,3 +21,11 @@
     text-align: center;
   }
 }
+@include mobile() {
+  .table {
+    font-size: 14px;
+    .tableHeader {
+      font-size: 14px;
+    }
+  }
+}
