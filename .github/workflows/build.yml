@@ -1,16 +1,32 @@
-name: build
+name: GitHub Pages
 
 on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-20.04
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-          node-version: 16
-      - run: ls -al && npm run && npm i && rm -rf docs/ && npm run build && mv dist docs
+          node-version: '16'
+
+      - run: npm i
+      - run: npm run build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
