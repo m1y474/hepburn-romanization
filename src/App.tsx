@@ -9,6 +9,8 @@ import SpellingTable from "@components/SpellingTable";
 import Check from "@components/Check";
 import ReactGA from "react-ga4";
 import TranslateRule from "@components/TranslateRule";
+import Note from "@components/Note";
+import About from "@components/About";
 
 ReactGA.initialize("G-FB9FGN6TC8");
 ReactGA.send("pageview");
@@ -140,12 +142,20 @@ export default class App extends React.Component<React.FC, AppState> {
           </div>
         </div>
         <div className={styles.headingWrapper}>
+          <Heading text="ヘボン式ローマ字とは？" />
+          <About />
+        </div>
+        <div className={styles.headingWrapper}>
           <Heading text="ヘボン式ローマ字綴方表" />
           <SpellingTable />
         </div>
         <div className={styles.headingWrapper}>
           <Heading text="変換ルール" />
-<TranslateRule />
+          <TranslateRule />
+        </div>
+        <div className={styles.headingWrapper}>
+          <Heading text="注意点" />
+          <Note />
         </div>
       </div>
     );

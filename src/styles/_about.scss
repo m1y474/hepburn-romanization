@@ -1,0 +1,13 @@
+@import "./vars";
+.quote {
+  font-size: 16px;
+  font-style: oblique;
+  color: $greyColor;
+}
+.author {
+  margin: 5px 0 0;
+  a {
+    font-size: 14px;
+    color: $mainColor;
+  }
+}

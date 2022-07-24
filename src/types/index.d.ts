@@ -16,6 +16,7 @@ export type CheckProps = {
   label: string;
   onChange: (checked: boolean) => void;
 };
+
 export type HeadingProps = {
   text: string;
 };
