@@ -8,6 +8,10 @@ import RoundedButton from "./components/RoundedButton";
 import Heading from "./components/Heading";
 import SpellingTable from "./components/SpellingTable";
 import Check from "./components/Check";
+import ReactGA from "react-ga4";
+
+ReactGA.initialize("G-FB9FGN6TC8");
+ReactGA.send("pageview");
 
 export default class App extends React.Component<React.FC, AppState> {
   private input = React.createRef<HTMLInputElement>();
