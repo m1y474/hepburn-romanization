@@ -2,3 +2,9 @@ $maxWidth: 1200px;
 $mainColor: #33cccc;
 $greyColor: #707070;
 $lightGreyColor: #999999;
+
+@mixin mobile() {
+  @media screen and (max-width: 600px) {
+    @content;
+  }
+}

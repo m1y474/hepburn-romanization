@@ -14,3 +14,15 @@
     border-left: 5px solid $mainColor;
   }
 }
+
+@include mobile() {
+  .header {
+    font-size: 20px;
+  }
+  .headingWrapper {
+    margin-top: 20px;
+    .heading {
+      font-size: 16px;
+    }
+  }
+}

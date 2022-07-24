@@ -11,3 +11,11 @@
     color: $mainColor;
   }
 }
+@include mobile() {
+  .quote {
+    font-size: 14px;
+  }
+  .author {
+    font-size: 12px;
+  }
+}

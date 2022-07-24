@@ -3,3 +3,8 @@
   width: $maxWidth;
   margin: 0 auto;
 }
+@include mobile() {
+  .container {
+    width: auto;
+  }
+}
