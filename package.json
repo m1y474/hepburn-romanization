@@ -8,8 +8,7 @@
     "init": "npm i && git config core.hooksPath bin/git && chmod a+x bin/git/",
     "build": "GENERATE_SOURCEMAP=false webpack --mode=production",
     "start": "webpack-cli serve --mode development",
-    "test": "jest",
-    "deploy": "rm -rf docs/ && npm run build && mv dist docs"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
