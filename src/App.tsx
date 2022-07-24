@@ -1,7 +1,6 @@
 import axios from "axios";
 import { Arrow } from "./components/Icons";
 import React from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
 import { AppState } from "types";
 import styles from "./styles/app.scss";
 import RoundedButton from "./components/RoundedButton";
