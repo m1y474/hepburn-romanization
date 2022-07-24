@@ -1,10 +1,12 @@
 import React from "react";
-import styles from "../styles/app.scss";
+import styles from "@styles/app.scss";
+import SpellingTable from "@components/SpellingTable";
 
 export default class TranslateRule extends React.Component {
   render(): React.ReactNode {
     return (
       <ul className={styles.list}>
+        <SpellingTable />
         <li>
           B, M, Pの前の「ん」はNではなくMで表記する。
           <p>例：NAMBA（ナンバ）、HOMMA（ホンマ）、SAMPEI（サンペイ）</p>

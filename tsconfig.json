@@ -17,9 +17,8 @@
     "paths": {
       "*": ["src/*"],
       "tests": ["__tests__/*"],
-      "@components/*": ["src/components/*"],
-      "@views/*": ["src/views/*"],
-      "@assets/*": ["src/assets/*"]
+      "@components/*": ["./src/components/*"],
+      "@styles/*": ["./src/styles/*"]
     }
   },
   "include": ["src/**/*"],

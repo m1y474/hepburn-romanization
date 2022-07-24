@@ -1,6 +1,6 @@
 import React from "react";
 import { CheckProps } from "types";
-import styles from "../styles/app.scss";
+import styles from "@styles/app.scss";
 
 export default class Check extends React.Component<CheckProps> {
   render(): React.ReactNode {
