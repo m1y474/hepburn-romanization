@@ -1,7 +1,6 @@
 import axios from "axios";
 import { Arrow } from "./components/Icons";
 import React from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
 import { AppState } from "types";
 import styles from "./styles/app.scss";
 import RoundedButton from "./components/RoundedButton";
@@ -9,6 +8,7 @@ import Heading from "./components/Heading";
 import SpellingTable from "./components/SpellingTable";
 import Check from "./components/Check";
 import ReactGA from "react-ga4";
+import TranslateRule from "./components/TranslateRule";
 
 ReactGA.initialize("G-FB9FGN6TC8");
 ReactGA.send("pageview");
@@ -145,26 +145,7 @@ export default class App extends React.Component<React.FC, AppState> {
         </div>
         <div className={styles.headingWrapper}>
           <Heading text="変換ルール" />
-          <ul className={styles.list}>
-            <li>
-              B, M, Pの前の「ん」はNではなくMで表記する。
-              <p>例：NAMBA（ナンバ）、HOMMA（ホンマ）、SAMPEI（サンペイ）</p>
-            </li>
-            <li>
-              促音は子音を重ねて表記する。ただし、CHI, CHA, CHUの前にはTで表記する。
-              <p>例：HATTORI（ハットリ）、KIKKAWA（キッカワ）／HATCHI（ホッチ）、HATCHO（ハッチョウ）</p>
-            </li>
-            <li>
-              OやUの長音は表記しない。ただし、末尾がOOで読みが「オオ」の場合はOOと表記する。
-              <p>
-                例：YUKI（ユウキ）、YUKO（ユウコ）、KOTA(コウタ)、YOKO（ヨウコ）、ONISHI（オオニシ）／SENOO（セノオ）、TAKATOO（タカトオ）
-              </p>
-            </li>
-            <li>
-              長音符は省略します。ただし、長音符を使用しない長音の場合は省略しません。
-              <p>例：NINA（ニーナ）、SHINA（シーナ）／NIINA（ニイナ）、SHIINA（シイナ）</p>
-            </li>
-          </ul>
+<TranslateRule />
         </div>
       </div>
     );
