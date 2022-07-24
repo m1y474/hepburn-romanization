@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 module.exports = {
   mode: process.env.NODE_ENV ?? "development",
@@ -44,6 +45,7 @@ module.exports = {
   },
   resolve: {
     extensions: [".ts", ".js", ".tsx", ".json"],
+    plugins: [new TsconfigPathsPlugin({ configFile: "./tsconfig.json" })],
   },
   devtool: "inline-source-map",
   devServer: {

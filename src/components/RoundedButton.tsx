@@ -1,7 +1,7 @@
 import React from "react";
 import { ButtonProps } from "types";
-import { Clean, File } from "./Icons";
-import styles from "../styles/app.scss";
+import { Clean, File } from "@components/Icons";
+import styles from "@styles/app.scss";
 
 export default class RoundedButton extends React.Component<ButtonProps> {
   render(): React.ReactNode {
