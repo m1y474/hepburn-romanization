@@ -20,7 +20,7 @@ export default class TranslateRule extends React.Component {
           </p>
         </li>
         <li>
-          長音符は省略します。ただし、長音符を使用しない長音の場合は省略しません。
+          長音符は省略する。ただし、長音符を使用しない長音の場合は省略しない。
           <p>例：NINA（ニーナ）、SHINA（シーナ）／NIINA（ニイナ）、SHIINA（シイナ）</p>
         </li>
       </ul>
