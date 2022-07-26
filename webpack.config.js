@@ -64,7 +64,10 @@ module.exports = {
       favicon: "./public/favicon.ico",
     }),
     new CopyPlugin({
-      patterns: [{ from: `${__dirname}/public/spells.json`, to: `${__dirname}/dist/spells.json` }],
+      patterns: [
+        { from: `${__dirname}/public/spells.json`, to: `${__dirname}/dist/spells.json` },
+        { from: `${__dirname}/public/sitemap.xml`, to: `${__dirname}/dist/sitemap.xml` },
+      ],
     }),
   ],
   optimization: {
