@@ -13,13 +13,16 @@
   justify-content: center;
   width: 60px;
   height: 60px;
-  &:hover {
-    opacity: 0.5;
-  }
   small {
     display: block;
     margin-top: 5px;
     font-size: 12px;
+  }
+}
+
+@media (hover: hover) {
+  .button:hover {
+    opacity: 0.5;
   }
 }
 
