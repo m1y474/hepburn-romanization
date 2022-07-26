@@ -113,6 +113,7 @@ export default class App extends React.Component<React.FC, AppState> {
           <div className={styles.wrapper}>
             <form className={styles.left}>
               <textarea
+                autoFocus
                 placeholder="ひらがな・カタカナを入力すると右側に変換結果が表示されます。&#10;例：やまだ　たろう"
                 onChange={(event) => {
                   this.transrate(event.target.value);
