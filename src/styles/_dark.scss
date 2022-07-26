@@ -1,0 +1,36 @@
+$darkColor: #141414;
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: $darkColor;
+    .left {
+      background-color: $darkColor;
+      textarea {
+        background-color: $darkColor;
+        color: #fff;
+      }
+    }
+    .right {
+      color: #fff;
+    }
+    .button {
+      background-color: $darkColor;
+    }
+    .message {
+      background-color: rgba($color: #fff, $alpha: 0.5);
+    }
+    .table {
+      tr td {
+        border: 0.5px solid $greyColor;
+        color: $greyColor;
+        &:nth-last-of-type(even) {
+          color: #000;
+          background-color: #aaa;
+        }
+      }
+      .tableHeader {
+        color: #000;
+      }
+    }
+  }
+}
