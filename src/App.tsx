@@ -69,7 +69,7 @@ export default class App extends React.Component<React.FC, AppState> {
       .join("")
       .replaceAll(/OO(?=[A-Z])/g, "O")
       .replaceAll("UU", "U")
-      .replaceAll("OU", "O");
+      .replaceAll(/(?!N)(OU)(?!E)/, "O");
 
     this.setState({
       result: this.state.isLower ? replace.toLowerCase() : replace,
