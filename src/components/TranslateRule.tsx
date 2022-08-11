@@ -23,6 +23,11 @@ export default class TranslateRule extends React.Component {
           長音符は省略する。ただし、長音符を使用しない長音の場合は省略しない。
           <p>例：NINA（ニーナ）、SHINA（シーナ）／NIINA（ニイナ）、SHIINA（シイナ）</p>
         </li>
+        <li>
+          井上（いのうえ）、滝上（たきのうえ）のような「*のうえ」という名字の場合、[OU]が[O]に変換されると[INOE][TAKINOE]という表記になります。
+          <br />
+          上記を防ぐため例外的に[NOUE]という文字列の場合は[OU]を[O]に変換しないようにしています。
+        </li>
       </ul>
     );
   }
