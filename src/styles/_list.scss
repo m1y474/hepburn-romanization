@@ -3,6 +3,15 @@
   padding-left: 1rem;
   font-size: 14px;
   color: $greyColor;
+  li {
+    margin-bottom: 10px;
+    line-height: 22px;
+    letter-spacing: 0.4px;
+    strong {
+      color: #ff3333;
+      font-weight: normal;
+    }
+  }
   p {
     font-size: 12px;
     margin: 0;

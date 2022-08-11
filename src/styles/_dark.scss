@@ -19,6 +19,9 @@ $darkColor: #141414;
     .message {
       background-color: rgba($color: #fff, $alpha: 0.5);
     }
+    strong {
+      color: #ff9999;
+    }
     .table {
       tr td {
         border: 0.5px solid $greyColor;
