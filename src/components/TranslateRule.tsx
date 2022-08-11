@@ -24,9 +24,11 @@ export default class TranslateRule extends React.Component {
           <p>例：NINA（ニーナ）、SHINA（シーナ）／NIINA（ニイナ）、SHIINA（シイナ）</p>
         </li>
         <li>
-          井上（いのうえ）、滝上（たきのうえ）のような「*のうえ」という名字の場合、[OU]が[O]に変換されると[INOE][TAKINOE]という表記になります。
-          <br />
-          上記を防ぐため例外的に[NOUE]という文字列の場合は[OU]を[O]に変換しないようにしています。
+          <strong>
+            井上（いのうえ）、滝上（たきのうえ）のような「*のうえ」という名字の場合、[OU]が[O]に変換されると[INOE][TAKINOE]という表記になります。
+            <br />
+            上記を防ぐため例外的に[NOUE]という文字列の場合は[OU]を[O]に変換しないようにしています。
+          </strong>
         </li>
       </ul>
     );
