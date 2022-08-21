@@ -1,4 +1,3 @@
-import axios from "axios";
 import { Arrow } from "@components/Icons";
 import React from "react";
 import { AppState } from "types";
@@ -11,81 +10,35 @@ import ReactGA from "react-ga4";
 import TranslateRule from "@components/TranslateRule";
 import Note from "@components/Note";
 import About from "@components/About";
+import Translator from "useCases/Translator";
 
 ReactGA.initialize("G-FB9FGN6TC8");
 ReactGA.send("pageview");
 
 export default class App extends React.Component<React.FC, AppState> {
-  private input = React.createRef<HTMLInputElement>();
+  private readonly input = React.createRef<HTMLInputElement>();
+  private readonly useCase = new Translator();
 
   constructor(props: React.FC) {
     super(props);
     this.state = {
-      spells: {},
       result: "",
       isLower: false,
       message: "",
     };
   }
 
-  componentDidMount() {
-    axios.get("./spells.json").then((res) => {
-      this.setState({ spells: res.data });
-    });
-  }
-
   transrate(args: string) {
-    const spells = this.state.spells;
-    const src = args.replace(/[\u30a1-\u30f6]/g, (match) => String.fromCharCode(match.charCodeAt(0) - 0x60));
-    const result: string[] = [];
-    const toM: string = "ばびぶべぼまみむめもぱぴぷぺぽ";
-    const small = "ぁぃぇぉゃゅょ";
-    const toT: string[] = ["ち", "ちゃ", "ちゅ", "ちょ"];
-    const toArray = src.toUpperCase().split("");
-    toArray.map((arg, index) => {
-      const spell = spells?.[arg]?.[0] ?? "";
-      if (!(index in result)) {
-        result.push(spell);
-        // んの後ろがtoMに含まれていたらNをMに変換する
-        if (toM?.split("")?.includes(arg) && toArray?.[index - 1] === "ん") {
-          result[index - 1] = "M";
-        }
-        // 「っ」以外の拗音の場合は一つ前の文字とセットでspellを取得する
-        if (small.split("").includes(arg)) {
-          const double = `${toArray?.[index - 1]}${arg}`;
-          const toDouble = spells?.[double]?.[0] ?? "";
-          let tmp = toDouble;
-          // 2つ前が「っ」の場合
-          if (src?.[index - 2] === "っ") {
-            tmp = toT.includes(double) ? `T${toDouble}` : `${toDouble?.charAt(0) ?? ""}${toDouble}`;
-          }
-          result[index - 1] = tmp;
-        } else if (src?.[index - 1] === "っ") {
-          result[index] = `${spell?.charAt(0) ?? ""}${spell}`;
-        }
-      }
-    });
-    const replace = result
-      .join("")
-      .replaceAll(/OO(?=[A-Z])/g, "O")
-      .replaceAll("UU", "U")
-      .replaceAll(/(?!N)(OU)(?!E)/g, "O");
-
+    const result = this.useCase.translate(args);
     this.setState({
-      result: this.state.isLower ? replace.toLowerCase() : replace,
+      result: this.state.isLower ? result.toLowerCase() : result,
     });
   }
 
   toLower(isLower: boolean) {
-    if (isLower) {
-      this.setState({
-        result: this.state.result.toLowerCase(),
-        isLower: isLower,
-      });
-      return;
-    }
+    const result = this.useCase.changeCase(this.state.result, isLower);
     this.setState({
-      result: this.state.result.toUpperCase(),
+      result: result,
       isLower: isLower,
     });
   }
