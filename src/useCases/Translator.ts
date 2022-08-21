@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import Repository from "repositories/Spell";
 import { Spell } from "types";
 
 export default class Translator {
@@ -8,13 +8,7 @@ export default class Translator {
   private readonly toT: string[] = ["ち", "ちゃ", "ちゅ", "ちょ"];
 
   constructor() {
-    this.setSpells();
-  }
-
-  private setSpells() {
-    axios.get("./spells.json").then((res: AxiosResponse) => {
-      this.spells = res.data;
-    });
+    new Repository().fetch().then((res) => (this.spells = res));
   }
 
   public changeCase(args: string, isLower: boolean) {
