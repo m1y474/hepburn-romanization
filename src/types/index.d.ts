@@ -18,5 +18,6 @@ export type CheckProps = {
 };
 
 export type HeadingProps = {
+  id: string;
   text: string;
 };
