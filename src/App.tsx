@@ -30,7 +30,6 @@ export default class App extends React.Component<React.FC, AppState> {
 
   transrate(args: string) {
     const result = this.useCase.translate(args);
-
     this.setState({
       result: this.state.isLower ? result.toLowerCase() : result,
     });
