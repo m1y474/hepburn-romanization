@@ -1,5 +1,5 @@
+export type Spell = { [key: string]: string[] };
 export type AppState = {
-  spells: { [key: string]: string[] };
   result: string;
   message: string;
   isLower: boolean;
