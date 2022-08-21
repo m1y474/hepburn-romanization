@@ -96,19 +96,19 @@ export default class App extends React.Component<React.FC, AppState> {
           </div>
         </div>
         <div className={styles.headingWrapper}>
-          <Heading text="ヘボン式ローマ字とは？" />
+          <Heading id="about" text="ヘボン式ローマ字とは？" />
           <About />
         </div>
         <div className={styles.headingWrapper}>
-          <Heading text="ヘボン式ローマ字綴方表" />
+          <Heading id="table" text="ヘボン式ローマ字綴方表" />
           <SpellingTable />
         </div>
         <div className={styles.headingWrapper}>
-          <Heading text="変換ルール" />
+          <Heading id="rule" text="変換ルール" />
           <TranslateRule />
         </div>
         <div className={styles.headingWrapper}>
-          <Heading text="注意点" />
+          <Heading id="note" text="注意点" />
           <Note />
         </div>
       </div>

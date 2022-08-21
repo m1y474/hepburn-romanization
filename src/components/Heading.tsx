@@ -4,6 +4,10 @@ import { HeadingProps } from "types";
 
 export default class Heading extends React.Component<HeadingProps> {
   render(): React.ReactNode {
-    return <h2 className={styles.heading}>{this.props.text}</h2>;
+    return (
+      <h2 id={this.props.id} className={styles.heading}>
+        {this.props.text}
+      </h2>
+    );
   }
 }
