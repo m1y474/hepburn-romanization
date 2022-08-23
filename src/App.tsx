@@ -100,7 +100,7 @@ export default class App extends React.Component<React.FC, AppState> {
           <About />
         </div>
         <div className={styles.headingWrapper}>
-          <Heading id="table" text="ヘボン式ローマ字綴方表" />
+          <Heading id="table" text="ヘボン式ローマ字綴方一覧表" />
           <SpellingTable />
         </div>
         <div className={styles.headingWrapper}>
