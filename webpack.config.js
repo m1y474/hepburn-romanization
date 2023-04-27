@@ -67,6 +67,7 @@ module.exports = {
       patterns: [
         { from: `${__dirname}/public/spells.json`, to: `${__dirname}/dist/spells.json` },
         { from: `${__dirname}/public/sitemap.xml`, to: `${__dirname}/dist/sitemap.xml` },
+        { from: `${__dirname}/public/global.css`, to: `${__dirname}/dist/global.css` },
       ],
     }),
   ],

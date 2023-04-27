@@ -1,0 +1,18 @@
+.rakuten {
+  text-align: center;
+  margin: 20px auto;
+}
+.rakuten.l {
+  width: 1200px;
+}
+.rakuten.s {
+  display: none;
+}
+@media screen and (max-width: 600px) {
+  .rakuten.s {
+    display: block;
+  }
+  .rakuten.l {
+    display: none;
+  }
+}
